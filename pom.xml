@@ -1,0 +1,171 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>jp.co.axas.teamsplit</groupId>
+	<artifactId>teamsplit-auto-input-project</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>TEAM SPLIT AUTO INPUT</name>
+
+	<!-- ============================================================ -->
+	<!-- Description -->
+	<!-- ============================================================ -->
+	<description>
+		<![CDATA[
+		TeamSplit自動入力モジュール
+		]]>
+	</description>
+	<inceptionYear>2016</inceptionYear>
+
+	<!-- ============================================================ -->
+	<!-- Build settings -->
+	<!-- ============================================================ -->
+	<build>
+		<defaultGoal>install</defaultGoal>
+		<!-- final name -->
+		<finalName>teamsplit-auto-input</finalName>
+		<!-- ===== structure definitions ===== -->
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<outputDirectory>target/classes</outputDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/config</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.xsd</exclude>
+					<exclude>**/*.dtd</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.xsd</exclude>
+					<exclude>**/*.dtd</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<testOutputDirectory>target/test-classes</testOutputDirectory>
+		<testResources>
+			<testResource>
+				<directory>src/test/config</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.xsd</exclude>
+					<exclude>**/*.dtd</exclude>
+				</excludes>
+			</testResource>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.xsd</exclude>
+					<exclude>**/*.dtd</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+		<!-- ===== plugins definitions ===== -->
+		<plugins>
+			<!-- Setting to Generate Eclipse Project -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+				</configuration>
+			</plugin>
+			<!-- Default Setting for Unit Test -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skip>${test.skip}</skip>
+				</configuration>
+			</plugin>
+			<!-- for use of JDK1.8 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- Setting to Generate Eclipse Project -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<addExtensions>true</addExtensions>
+							<classpathPrefix>../lib/</classpathPrefix>
+							<mainClass>
+								jp.co.axas.teamsplit.TeamSplitAutoRun
+							</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass>
+								jp.ohanamaru.teamsplit.TeamSplitAutoRun
+							</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<!-- ============================================================ -->
+	<!-- Dependecy Settig -->
+	<!-- ============================================================ -->
+	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+	</dependencies>
+</project>
