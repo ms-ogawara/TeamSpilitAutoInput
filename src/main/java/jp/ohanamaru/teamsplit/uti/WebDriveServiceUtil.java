@@ -35,7 +35,7 @@ public class WebDriveServiceUtil {
 	public static void waitUntilNotFindElement(long waitTime, int timeoutCnt, TeamSplitStrategy t) {
 		try {
 			// StaleElementReferenceExceptionを回避するため、ここでDOMの読み込みを待つ
-			Thread.sleep(100);
+			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
