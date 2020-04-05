@@ -13,7 +13,7 @@ TeamSplitの勤怠を自動入力するやつ。
 
 - コマンドプロンプトより、以下のコマンド実行
   ```
-  java -Dwebdriver.chrome.driver="chromedriver.exeの絶対パス" -jar teamsplit-auto-input.jar
+  java -Dwebdriver.chrome.driver="chromedriver.exeのパス" -jar teamsplit-auto-input.jar
   ```
   ※zipに同梱しているchromedriver.exeはChromeのバージョンが80のものです。<br/>
   ※お使いのChromeのバージョンが異なる場合は、[こちら](https://chromedriver.chromium.org/downloads)からダウンロードしてください。 
