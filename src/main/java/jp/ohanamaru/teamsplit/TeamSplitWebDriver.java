@@ -42,8 +42,7 @@ public class TeamSplitWebDriver {
 
 	private static final int WORK_REGIST_SKIP_NUMBER = 0;
 
-	public TeamSplitWebDriver(String version) {
-		
+	public TeamSplitWebDriver() {
 		driver = new ChromeDriver();
 	}
 

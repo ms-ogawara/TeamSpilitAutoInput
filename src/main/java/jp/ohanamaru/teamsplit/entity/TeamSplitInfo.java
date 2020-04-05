@@ -8,7 +8,7 @@ import java.util.Calendar;
  * 
  */
 public class TeamSplitInfo {
-	
+
 	public static final String DEFAULT_CHROME_VERSION = "80";
 
 	/**
@@ -45,11 +45,6 @@ public class TeamSplitInfo {
 	 * 工数の時間
 	 */
 	private String workTime;
-
-	/**
-	 * Chromeのバージョン
-	 */
-	private String chromeVersion;
 
 	// アクセサ
 	public String getUserName() {
@@ -94,14 +89,6 @@ public class TeamSplitInfo {
 
 	public String getWorkTime() {
 		return workTime;
-	}
-
-	public String getChromeVersion() {
-		return chromeVersion;
-	}
-
-	public void setChromeVersion(String chromeVersion) {
-		this.chromeVersion = chromeVersion;
 	}
 
 	/**

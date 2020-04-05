@@ -22,7 +22,7 @@ public class TeamSplitAutoRun {
 			TeamSplitInfo entity = console.input();
 
 			// 実行
-			TeamSplitWebDriver driver = new TeamSplitWebDriver(entity.getChromeVersion());
+			TeamSplitWebDriver driver = new TeamSplitWebDriver();
 			driver.drive(entity);
 
 			System.out.println("処理終了\n");

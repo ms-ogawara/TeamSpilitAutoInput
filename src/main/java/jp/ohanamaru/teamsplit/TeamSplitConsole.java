@@ -23,22 +23,7 @@ public class TeamSplitConsole {
 		String startTime = "";
 		String endTime = "";
 		String workNumber = "";
-		String chromeVersion = "";
 		try {
-			System.out.println("■■■ChromeのVersionを選択してください■■■");
-			System.out.println("※バージョンは「ヘルプ＞Google Chromeについて」で確認できます");
-			System.out.println("※現状80～81にしか対応してません。未入力の場合は80で動きます");
-
-			System.out.print("[80/81]＞");
-			chromeVersion = br.readLine();
-			if (CheckUtil.isStringEmpty(chromeVersion)) {
-				entity.setChromeVersion(TeamSplitInfo.DEFAULT_CHROME_VERSION);
-			} else if (CheckUtil.isChromeVersionValid(chromeVersion)) {
-				entity.setChromeVersion(chromeVersion);
-			} else {
-				throw new ValidationException("ChromeのVersionが不正です");
-			}
-
 			System.out.println("■■■TeamSplitのアカウントを入力して下さい■■■");
 			System.out.print("ユーザ名> ");
 			userName = br.readLine();
